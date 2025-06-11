@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #9010f1;
+}
+
+.carrusel {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 80px auto 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.slide {
+    min-width: 100%;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.slide:hover {
+    transform: scale(1.05);
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    z-index: 1;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+main {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgb(255, 255, 255);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#invertirColoresBtn {
+    position: fixed;
+    top: 100px; /* justo debajo del header */
+    right: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 255, 255);
+    transition: all 0.3s ease;
+    z-index: 11;
+}
+
+#invertirColoresBtn:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Modo invertido */
+body.invertido {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.invertido section {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgb(0, 0, 0);
+}
+
+body.invertido header {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000;
+}
+
+body.invertido .dropdown-title{
+    color: #000000;
+}
+
+body.invertido .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 4px 6px rgba(255, 255, 255);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px 0;
+    list-style-type: none;
+    width: 200px;
+}
+
+body.invertido .dropdown-menu li a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+body.invertido .dropdown-menu li a:hover {
+    background-color: #000000;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+body.invertido nav ul li a {
+    color: #000000;
+}
+
+body.invertido nav ul li a:hover {
+    color: #9010f1;
+}
+
+body.invertido footer {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.invertido #invertirColoresBtn {
+    position: fixed;
+    top: 100px; /* justo debajo del header */
+    right: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+    transition: all 0.3s ease;
+    z-index: 11;
+    
+}
+
+body.invertido #invertirColoresBtn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Estilo del aviso en la esquina inferior izquierda */
+.notificacion-modo {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: translateY(20px); /* Efecto de entrada */
+}
+
+/* Cuando está visible */
+.notificacion-modo.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0); /* Subir un poco para animar */
+}
+
+/* Oculto por defecto */
+.oculto {
+    display: none;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 0;
+        position: static; 
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .carrusel {
+        width: 95%; 
+        margin-top: 20px; 
+    }
+
+    main {
+        width: 90%; 
+        margin: 20px auto;
+        padding: 0 10px; 
+    }
+
+    section {
+        padding: 15px; 
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    #invertirColoresBtn {
+        top: auto; 
+        bottom: 20px; 
+        right: 20px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .notificacion-modo {
+        bottom: 20px;
+        left: 20px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .carrusel {
+        margin-top: 10px;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    section p {
+        font-size: 0.9rem;
+    }
+
+    footer h3 p {
+        font-size: 0.7rem;
+    }
+}
