@@ -457,3 +457,11 @@ body.invertido .pizarra textarea {
 .oculto {
     display: none;
 }
+
+.calculator-draggable .buttons button:last-child {
+    background-color: #aa0000;
+}
+
+.calculator-draggable .buttons button:last-child:hover {
+    background-color: #ff0000;
+}
