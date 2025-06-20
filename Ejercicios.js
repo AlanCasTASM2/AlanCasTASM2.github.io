@@ -207,3 +207,13 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('mouseup', () => {
     isDragging = false;
 });
+
+function deleteLast() {
+    const display = document.getElementById('display');
+    display.value = display.value.slice(0, -1);
+}
+
+function closeCalculator() {
+    const calc = document.getElementById('calculatorContainer');
+    calc.classList.add('oculto');
+}
